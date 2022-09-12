@@ -20,7 +20,7 @@
 	};
 
 	/// MAGIC
-	const magic = new Magic('pk_live_3199AAC8914C04CD', {
+	const magic = new Magic('', {
 		network: 'rinkeby',
 		extensions: [new ConnectExtension()]
 	});
