@@ -1,4 +1,4 @@
-name: Build Dapp
+name: Deploy on GitHub Pages
 on:
   push:
     branches:

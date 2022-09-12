@@ -10,7 +10,8 @@ const config = {
 	kit: {
 		adapter: adapter({
 			pages: 'web',
-			assets: 'web'
+			assets: 'web',
+			fallback: 'index.html'
 		})
 	}
 };
