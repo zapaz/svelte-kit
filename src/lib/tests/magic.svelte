@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { Magic } from 'magic-sdk';
 	import { ConnectExtension } from '@magic-ext/connect';
-	import { ethers, providers } from 'ethers';
+	import { ethers } from 'ethers';
 
-	// import Web3 from 'web3';
-
-	const web3Connect = async (web3: providers.ExternalProvider): Promise<string | undefined> => {
+	const web3Connect = async (
+		web3: ethers.providers.ExternalProvider
+	): Promise<string | undefined> => {
 		let accounts: Array<string> = [];
 
 		if (!web3.request) return;
@@ -27,22 +27,21 @@
 	// console.log('magic', magic);
 
 	const ethersProviderMagic = new ethers.providers.Web3Provider(
-		magic.rpcProvider as unknown as providers.ExternalProvider
+		magic.rpcProvider as unknown as ethers.providers.ExternalProvider
 	);
-	
+
 	const connectMagic = async () => {
 		console.log('ethersProviderMagic.listAccounts()', await ethersProviderMagic.listAccounts());
 		// console.log('connectMagic1');
 		// await web3Connect(magic.rpcProvider as unknown as providers.ExternalProvider);
 		// console.log('connectMagic2');
 	};
-	
+
 	// magic.connect.showWallet().catch(console.error);
 	// magic.connect.requestUserInfo();
 
-
 	/// METAMASK
-	const ethereum = window?.ethereum as providers.ExternalProvider;
+	const ethereum = window?.ethereum as ethers.providers.ExternalProvider;
 	const ethersProvider = new ethers.providers.Web3Provider(ethereum, 'any');
 
 	const connectMetamask = async () => {
@@ -55,7 +54,6 @@
 	// 		ethersProvider.listAccounts().then(console.log)
 	// 	}
 </script>
-
 
 <p on:click={connectMagic}>Connect Magic</p>
 <p on:click={connectMetamask}>Connect Metamask</p>
